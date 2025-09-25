@@ -150,4 +150,7 @@ ehthumbs.db
 .vsconfig
 *.code-workspace
 
+# Explicitly ignore the small local marker file named 'query'
+/query
+
 # End of file
