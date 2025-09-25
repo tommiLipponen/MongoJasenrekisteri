@@ -1,0 +1,66 @@
+﻿@model MongoJäsenrekisteri.Models.Jasenet
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Jasenet</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Etunimi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Etunimi)
+        </dd>
+        <dt class = "col-sm-2">
+            Sukunimi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sukunimi)
+        </dd>
+        <dt class = "col-sm-2">
+            Osoite
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Osoite)
+        </dd>
+        <dt class = "col-sm-2">
+            Postinumero
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Postinumero)
+        </dd>
+        <dt class = "col-sm-2">
+            Puhelin
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Puhelin)
+        </dd>
+        <dt class = "col-sm-2">
+            Sähköposti
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sähköposti)
+        </dd>
+        <dt class = "col-sm-2">
+            LiittymisPvm
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LiittymisPvm)
+        </dd>
+    </dl>
+</div>
+<div class="mt-2">
+    <div class="d-flex gap-2 align-items-center" role="group" aria-label="Details actions">
+        <form asp-action="Edit" asp-route-id="@Model.Id" method="get" class="m-0 p-0 d-inline">
+            <button type="submit" class="btn btn-sm btn-primary" style="min-width:120px;">Edit</button>
+        </form>
+        <form asp-action="Index" method="get" class="m-0 p-0 d-inline">
+            <button type="submit" class="btn btn-sm btn-secondary" style="min-width:120px;">Back to List</button>
+        </form>
+    </div>
+</div>

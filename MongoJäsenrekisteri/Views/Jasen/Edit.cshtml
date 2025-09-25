@@ -1,0 +1,68 @@
+﻿@model MongoJäsenrekisteri.Models.Jasenet
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Jasenet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etunimi" class="control-label"></label>
+                <input asp-for="Etunimi" class="form-control" />
+                <span asp-validation-for="Etunimi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sukunimi" class="control-label"></label>
+                <input asp-for="Sukunimi" class="form-control" />
+                <span asp-validation-for="Sukunimi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Osoite" class="control-label"></label>
+                <input asp-for="Osoite" class="form-control" />
+                <span asp-validation-for="Osoite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Postinumero" class="control-label"></label>
+                <input asp-for="Postinumero" class="form-control" />
+                <span asp-validation-for="Postinumero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Puhelin" class="control-label"></label>
+                <input asp-for="Puhelin" class="form-control" />
+                <span asp-validation-for="Puhelin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sähköposti" class="control-label"></label>
+                <input asp-for="Sähköposti" class="form-control" />
+                <span asp-validation-for="Sähköposti" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LiittymisPvm" class="control-label"></label>
+                <input asp-for="LiittymisPvm" class="form-control" />
+                <span asp-validation-for="LiittymisPvm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary flex-fill">Save</button>
+                    <button type="button" class="btn btn-secondary flex-fill" onclick="location.href='@Url.Action("Index", "Jasen")'">Back to List</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

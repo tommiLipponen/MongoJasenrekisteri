@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MongoJäsenrekisteri.Models.Jasenet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-sm btn-success">Create New</a>
+</p>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Etunimi</th>
+            <th>Sukunimi</th>
+            <th>Osoite</th>
+            <th>Postinumero</th>
+            <th>Puhelin</th>
+            <th>Sähköposti</th>
+            <th>LiittymisPvm</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etunimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sukunimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Osoite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postinumero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puhelin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sähköposti)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LiittymisPvm)
+            </td>
+            <td>
+                <div class="d-flex gap-2" role="group" aria-label="Actions">
+                    <form asp-action="Edit" asp-route-id="@item.Id" method="get" class="m-0 p-0 flex-fill">
+                        <button type="submit" class="btn btn-sm btn-primary w-100">Edit</button>
+                    </form>
+                    <form asp-action="Details" asp-route-id="@item.Id" method="get" class="m-0 p-0 flex-fill">
+                        <button type="submit" class="btn btn-sm btn-info w-100">Details</button>
+                    </form>
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="m-0 p-0 flex-fill"
+                          onsubmit="return confirm('Jasen Poistetaan Rekisteristä: @item.Etunimi')">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-sm btn-danger w-100">Poista</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
